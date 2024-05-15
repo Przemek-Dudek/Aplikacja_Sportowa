@@ -1,0 +1,33 @@
+
+services:
+  mongo-db:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=12345
+    volumes:
+      - mongodb-data:/data/db
+
+  mongo-ub:
+    image: mongo
+    ports:
+      - 27018:27018
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=12345
+    volumes:
+      - mongodb-user:/data/db
+
+  pkiam-userbase:
+    image: 637423465034.dkr.ecr.eu-north-1.amazonaws.com/pkiam-userbase:latest
+    ports:
+     - 9001:9001
+
+volumes:
+  mongodb-data:
+    driver: local
+
+  mongodb-user:
+    driver: local
