@@ -1,4 +1,4 @@
-package org.springub;
+package org.springub.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

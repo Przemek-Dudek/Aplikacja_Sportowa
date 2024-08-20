@@ -1,6 +1,7 @@
-package org.springub;
+package org.springub.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springub.model.User;
 
 import java.util.Optional;
 
