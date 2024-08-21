@@ -15,6 +15,15 @@ public class User {
     private String salt;
     private String passwordHash;
 
+    public User(String login, String firstName, String lastName, String email, String passwordHash, String salt) {
+        this.login = login;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.passwordHash = passwordHash;
+        this.salt = salt;
+    }
+
     public String getId() {
         return id;
     }

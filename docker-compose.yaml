@@ -13,7 +13,7 @@ services:
   mongo-ub:
     image: mongo
     ports:
-      - 27018:27018
+      - 27018:27017
     environment:
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=12345
@@ -21,9 +21,11 @@ services:
       - mongodb-user:/data/db
 
   pkiam-userbase:
-    image: 637423465034.dkr.ecr.eu-north-1.amazonaws.com/pkiam-userbase:latest
+    build:
+      context: ./spring-ub/
+      dockerfile: Dockerfile
     ports:
-     - 9001:9001
+      - "9001:9001"
 
 volumes:
   mongodb-data:
