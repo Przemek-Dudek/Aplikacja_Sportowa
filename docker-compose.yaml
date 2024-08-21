@@ -20,12 +20,19 @@ services:
     volumes:
       - mongodb-user:/data/db
 
-  pkiam-userbase:
+  spring-userbase:
     build:
       context: ./spring-ub/
       dockerfile: Dockerfile
     ports:
       - "9001:9001"
+
+  spring-database:
+    build:
+      context: ./spring-db/
+      dockerfile: Dockerfile
+    ports:
+      - "9002:9002"
 
 volumes:
   mongodb-data:
