@@ -20,10 +20,10 @@ public class SecurityConfig{
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .requestMatchers("/api/users/create").permitAll()
-                .requestMatchers("/api/users/edit").permitAll()
-                .requestMatchers("/api/users/validate").permitAll()
-                .requestMatchers("/api/users/get/**").permitAll()
+                .requestMatchers("/api/user/create").permitAll()
+                .requestMatchers("/api/user/edit").permitAll()
+                .requestMatchers("/api/user/validate").permitAll()
+                .requestMatchers("/api/user/get/**").permitAll()
                 .anyRequest().authenticated();
         return http.build();
     }
