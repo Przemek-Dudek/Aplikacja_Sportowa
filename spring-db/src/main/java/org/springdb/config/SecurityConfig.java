@@ -1,4 +1,4 @@
-package org.springub.config;
+package org.springdb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig{
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -20,10 +21,15 @@ public class SecurityConfig{
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .requestMatchers("/api/user/create").permitAll()
-                .requestMatchers("/api/user/edit").permitAll()
-                .requestMatchers("/api/user/validate").permitAll()
-                .requestMatchers("/api/user/get").permitAll()
+                .requestMatchers("/api/profile/get").permitAll()
+                .requestMatchers("/api/profile/trust").permitAll()
+                .requestMatchers("/api/profile/elo").permitAll()
+                .requestMatchers("/api/team/get").permitAll()
+                .requestMatchers("/api/team/create").permitAll()
+                .requestMatchers("/api/team/add_member").permitAll()
+                .requestMatchers("/api/team/remove_member").permitAll()
+                .requestMatchers("/api/event/create").permitAll()
+                .requestMatchers("/api/event/get").permitAll()
                 .anyRequest().authenticated();
         return http.build();
     }

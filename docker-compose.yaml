@@ -32,7 +32,7 @@ services:
       context: ./spring-db/
       dockerfile: Dockerfile
     ports:
-      - "9002:9002"
+      - "9090:9090"
 
 volumes:
   mongodb-data:
